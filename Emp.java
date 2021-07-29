@@ -1,38 +1,40 @@
-class Author {
-    String authorName;
-    int age;
-    String place;
 
-    // Author class constructor
-    Author(String name, int age, String place) {
-        this.authorName = name;
-        this.age = age;
-        this.place = place;
+public class Address {
+    String city, state, country;
+
+    Address(String city, String state, String country) {
+        this.city = city;
+        this.state = state;
+        this.country = country;
     }
+
 }
 
-class Book {
+public class Emp {
+    int id;
     String name;
-    int price;
-    Author auther;
+    Address addres;
 
-    Book(String n, int p, Author auther) {
-        this.name = n;
-        this.price = p;
-        this.auther = auther;
+    Emp(int id, String name, Address addres) {
+        this.id = id;
+        this.name = name;
+        this.addres = addres;
+    }
+
+    void display() {
+        System.out.println(id + " " + name);
+        System.out.println(addres.city + " " + addres.state + " " + addres.country);
     }
 
     public static void main(String[] args) {
-        Author auther = new Author("John", 42, "USA");
+        Address address1 = new Address("gzb", "UP", "india");
+        Address address2 = new Address("gno", "UP", "india");
 
-        Book b = new Book("Java for Begginer", 800, auther);
+        Emp e = new Emp(111, "varun", address1);
+        Emp e2 = new Emp(112, "arun", address2);
 
-        System.out.println("Book Name: " + b.name);
-        System.out.println("Book Price: " + b.price);
-        System.out.println("------------Auther Details----------");
-        System.out.println("Auther Name: " + b.auther.authorName);
-        System.out.println("Auther Age: " + b.auther.age);
-        System.out.println("Auther place: " + b.auther.place);
+        e.display();
+        e2.display();
+
     }
-
 }
